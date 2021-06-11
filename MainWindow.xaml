@@ -4,8 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Save_the_Humans"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        mc:Ignorable="d" Height="700" Width="1000" Title="Save the Humans">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="140"/>
@@ -16,10 +15,10 @@
             <RowDefinition/>
             <RowDefinition Height="150"/>
         </Grid.RowDefinitions>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="34,58,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="startButton" Content="Start!" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.497,-1.03"/>
         <TextBlock Grid.Column="2" HorizontalAlignment="Left" 
-                   Margin="44,68,0,0" Grid.Row="1" TextWrapping="Wrap" 
-                   Text="TextBlock" VerticalAlignment="Top"/>
+                   Margin="22,20,0,0" Grid.Row="1" TextWrapping="Wrap" 
+                   VerticalAlignment="Top" FontSize="18"><Run Text="Avoid The"/><Run Text="se"/></TextBlock>
         <ProgressBar Grid.Column="1" HorizontalAlignment="Left" Height="10" Margin="200,92,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" ValueChanged="ProgressBar_ValueChanged"/>
         <ContentControl Content="ContentControl" Grid.Column="2" HorizontalAlignment="Left" Margin="42,103,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <Canvas Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="208,83,0,0" VerticalAlignment="Top" Width="100"/>
