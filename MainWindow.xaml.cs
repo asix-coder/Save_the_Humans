@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using System.Windows.Media.Animation;
+using System.Windows.Threading;
 
 namespace Save_the_Humans
 {
@@ -23,10 +24,31 @@ namespace Save_the_Humans
     public partial class MainWindow : Window
     {
         Random random = new Random();
+        DispatcherTimer enemyTimer = new DispatcherTimer();
+        DispatcherTimer targetTimer = new DispatcherTimer();
+        bool humanCaptured = false;
+
 
         public MainWindow()
         {
             InitializeComponent();
+
+            enemyTimer.Tick += enemyTimer_Tick;
+            enemyTimer.Interval = TimeSpan.FromSeconds(2);
+
+            targetTimer.Tick += targetTimer_Tick;
+            targetTimer.Interval = TimeSpan.FromSeconds(.1);
+
+        }
+
+        void targetTimer_Tick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        void enemyTimer_Tick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void ProgressBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
