@@ -5,6 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Save_the_Humans"
         mc:Ignorable="d" Height="700" Width="1000" Title="Save the Humans">
+    <Window.Resources>
+        <ControlTemplate x:Key="EnemyTemplate" TargetType="{x:Type ContentControl}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <Ellipse Height="100" Stroke="Black" Width="100" Grid.ColumnSpan="2" Fill="#FFFB0707"/>
+            </Grid>
+        </ControlTemplate>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="140"/>
@@ -16,12 +27,20 @@
             <RowDefinition Height="150"/>
         </Grid.RowDefinitions>
         <Button x:Name="startButton" Content="Start!" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.497,-1.03"/>
-        <TextBlock Grid.Column="2" HorizontalAlignment="Left" 
-                   Margin="22,20,0,0" Grid.Row="1" TextWrapping="Wrap" 
-                   VerticalAlignment="Top" FontSize="18"><Run Text="Avoid The"/><Run Text="se"/></TextBlock>
-        <ProgressBar Grid.Column="1" HorizontalAlignment="Left" Height="10" Margin="200,92,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" ValueChanged="ProgressBar_ValueChanged"/>
-        <ContentControl Content="ContentControl" Grid.Column="2" HorizontalAlignment="Left" Margin="42,103,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <Canvas Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="208,83,0,0" VerticalAlignment="Top" Width="100"/>
+        <StackPanel Grid.Column="2" Orientation="Vertical" Grid.Row="1">
+            <TextBlock 
+                TextWrapping="Wrap" FontSize="18"><Run Text="Avoid The"/><Run Text="se"/></TextBlock>
+            <ContentControl Content="ContentControl" HorizontalAlignment="Center" VerticalAlignment="Center" Template="{DynamicResource EnemyTemplate}"/>
+        </StackPanel>
+        <ProgressBar Grid.Column="1" Grid.Row="1" ValueChanged="ProgressBar_ValueChanged" Height="20"/>
+        <Canvas x:Name="playArea" Grid.ColumnSpan="3">
+            <Canvas.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFA640EE" Offset="0"/>
+                    <GradientStop Color="#FF86D13C" Offset="1"/>
+                </LinearGradientBrush>
+            </Canvas.Background>
+        </Canvas>
 
     </Grid>
 </Window>
