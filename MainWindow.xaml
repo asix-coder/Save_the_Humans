@@ -27,9 +27,9 @@
             <RowDefinition Height="150"/>
         </Grid.RowDefinitions>
         <Button x:Name="startButton" Content="Start!" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.497,-1.03"/>
-        <StackPanel Grid.Column="2" Orientation="Vertical" Grid.Row="1">
+        <StackPanel Grid.Column="2" Orientation="Vertical" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock 
-                TextWrapping="Wrap" FontSize="18"><Run Text="Avoid The"/><Run Text="se"/></TextBlock>
+                TextWrapping="Wrap" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="Avoid The"/><Run Text="se"/></TextBlock>
             <ContentControl Content="ContentControl" HorizontalAlignment="Center" VerticalAlignment="Center" Template="{DynamicResource EnemyTemplate}"/>
         </StackPanel>
         <ProgressBar Grid.Column="1" Grid.Row="1" ValueChanged="ProgressBar_ValueChanged" Height="20"/>
@@ -40,6 +40,8 @@
                     <GradientStop Color="#FF86D13C" Offset="1"/>
                 </LinearGradientBrush>
             </Canvas.Background>
+            <Ellipse Fill="#FFFB0707" Height="100" Stroke="Black" Width="100"/>
+            <Rectangle Fill="#FFFB0707" Height="100" Stroke="Black" Width="100" Canvas.Top="99"/>
         </Canvas>
 
     </Grid>
