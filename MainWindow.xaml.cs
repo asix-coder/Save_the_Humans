@@ -43,12 +43,26 @@ namespace Save_the_Humans
 
         void targetTimer_Tick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            progressBar.Value += 1;
+            if (progressBar.Value >= progressBar.Maximum)
+                EndTheGame();
+        }
+
+        private void EndTheGame()
+        {
+            if (!playArea.Children.Contains(gameOverText))
+            {
+                enemyTimer.Stop();
+                targetTimer.Stop();
+                humanCaptured = false;
+                startButton.Visibility = Visibility.Visible;
+                playArea.Children.Add(gameOverText);
+            }
         }
 
         void enemyTimer_Tick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            AddEnemy();
         }
 
         private void ProgressBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -58,7 +72,20 @@ namespace Save_the_Humans
 
         private void startButton_Click(object sender, RoutedEventArgs e)
         {
-            AddEnemy();
+            StartGame();
+        }
+
+        private void StartGame()
+        {
+            human.IsHitTestVisible = true;
+            humanCaptured = false;
+            progressBar.Value = 0;
+            startButton.Visibility = Visibility.Collapsed;
+            playArea.Children.Clear();
+            playArea.Children.Add(target);
+            playArea.Children.Add(human);
+            enemyTimer.Start();
+            targetTimer.Start();
         }
 
         private void AddEnemy()
